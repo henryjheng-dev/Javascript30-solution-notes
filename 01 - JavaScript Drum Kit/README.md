@@ -12,7 +12,8 @@
 - Clicking a key will trigger an animation effect.
 - Supports repeated clicks.
 
-### Demo: 👉 [Click me](https://henryjheng-dev.github.io/JavaScript30/01-JavaScript-Drum-Kit/)
+### Demo: 👉 [Click me](https://henryjheng-dev.github.io/Javascript30-solution-notes
+/01-JavaScript-Drum-Kit/)
 
 ## :pushpin: Key Techniques
 
