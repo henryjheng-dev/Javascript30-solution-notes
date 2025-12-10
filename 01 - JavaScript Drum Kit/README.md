@@ -1,4 +1,4 @@
-> Javascript30 天挑戰[repo](https://github.com/wesbos/JavaScript30)。挑戰只能使用純 Js 來撰寫，不能使用其他框架或是 Library，總共有 30 道題，我會紀錄我挑戰過程遇到的問題和解法。
+> [Javascript30 天挑戰](https://github.com/wesbos/JavaScript30)。挑戰只能使用純 Js 來撰寫，不能使用其他框架或是 Library，總共有 30 道題，我會紀錄我挑戰過程遇到的問題和解法。
 
 # 01 - JavaScript Drum Kit
 
@@ -12,8 +12,7 @@
 - Clicking a key will trigger an animation effect.
 - Supports repeated clicks.
 
-### Demo: 👉 [Click me](https://henryjheng-dev.github.io/Javascript30-solution-notes
-/01-JavaScript-Drum-Kit/)
+### Demo: 👉 [Click me](https://henryjheng-dev.github.io/Javascript30-solution-notes/01-JavaScript-Drum-Kit/)
 
 ## :pushpin: Key Techniques
 
