@@ -4,7 +4,7 @@
 
 ## :eyes: Introduction
 
-![](./drum-kit.jpg)
+![](./drum-kit.jpeg)
 
 ### Main goals
 
