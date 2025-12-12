@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS + CSS Clock</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+        <div class="number-12">12</div>
+        <div class="number-6">6</div>
+      </div>
+    </div>
+
+    <style>
+      html {
+        background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+        background-size: cover;
+        font-family: 'helvetica neue';
+        text-align: center;
+        font-size: 10px;
+      }
+
+      body {
+        margin: 0;
+        font-size: 2rem;
+        display: flex;
+        flex: 1;
+        min-height: 100vh;
+        align-items: center;
+      }
+
+      .clock {
+        width: 30rem;
+        height: 30rem;
+        border: 20px solid white;
+        border-radius: 50%;
+        margin: 50px auto;
+        position: relative;
+        padding: 2rem;
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef, inset 0 0 10px black,
+          0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .clock-face {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-3px); /* account for the height of the clock hands */
+      }
+
+      .clock-face::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        background-color: #000000;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+
+      .hand {
+        width: 50%;
+        height: 6px;
+        background: black;
+        position: absolute;
+        top: 50%;
+        /* 設定旋轉的中心為指針右端 */
+        transform-origin: 100%;
+        /* 90deg 是讓指針預設保持垂直 */
+        transform: rotate(90deg);
+        transition: all 0.05s;
+        transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        z-index: 1;
+      }
+      .second-hand {
+        height: 3px;
+        background-color: red;
+      }
+      .min-hand {
+        width: 45%;
+        margin-left: 5%;
+      }
+      .hour-hand {
+        width: 30%;
+        margin-left: 20%;
+      }
+      .number-12 {
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        color: #000000;
+        top: 1px;
+        font-size: 20px;
+      }
+      .number-6 {
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        color: #000000;
+        bottom: 1px;
+        font-size: 20px;
+      }
+    </style>
+
+    <script>
+      const secondHand = document.querySelector('.second-hand');
+      const minHand = document.querySelector('.min-hand');
+      const hourHand = document.querySelector('.hour-hand');
+
+      function updateClock() {
+        const currentTime = new Date();
+
+        const seconds = currentTime.getSeconds();
+        const mins = currentTime.getMinutes();
+        const hour = currentTime.getHours();
+
+        //Time conversion
+        const secondsDegrees = (seconds / 60) * 360 + 90;
+        secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+        const minsDegrees = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
+        minHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+        //每小時角度（360° / 12 = 30°）
+        const hourDegrees = (hour / 12) * 360 + (mins / 60) * 30 + 90;
+        hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+      }
+
+      setInterval(updateClock, 1000);
+
+      updateClock();
+    </script>
+  </body>
+</html>
